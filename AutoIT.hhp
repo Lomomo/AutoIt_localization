@@ -1,0 +1,15 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=AutoIT.chm
+Contents file=AutoIt3 TOC.hhc
+Default topic=html\index.htm
+Display compile progress=No
+Index file=AutoIT.hhk
+Language=0x404 中文 (繁體，台灣)
+
+
+[FILES]
+html\index.htm
+
+[INFOTYPES]
+
