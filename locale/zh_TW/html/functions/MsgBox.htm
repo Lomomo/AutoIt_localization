@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Function MsgBox</title>
+<meta charset="utf-8">
+<link href="../css/default.css" rel="stylesheet">
+</head>
+<body>
+<h1 class="small">Function Reference（Function Reference）</h1>
+<hr style="height:0px">
+<h1>MsgBox</h1>
+<p class="funcdesc">顯示一個簡單的對話框 (可設定逾時屬性) 。<br></p>
+<p class="codeheader">MsgBox ( flag, "title", "text" [, timeout = 0 [, hwnd]] )<br></p>
+
+<h2>參數</h2>
+<table>
+<tr>
+<td style="width:15%">flag</td>
+<td style="width:85%">該參數表示訊息框的類型及可用的組合按鈕，請見附註。</td>
+</tr>
+<tr>
+<td>title</td>
+<td>訊息框的標題。</td>
+</tr>
+<tr>
+<td>text</td>
+<td>訊息框的文字。</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>
+<strong>[選擇性參數]</strong> 逾時秒數。對話框經過多久後自動關閉的時間延遲，預設為 0 完全無延遲。 </td>
+</tr>
+<tr>
+<td>主控制碼(hwnd)</td>
+<td>
+<strong>[選擇性參數]</strong> 做為對話框主體的視窗控制碼。</td>
+</tr>
+</table>
+<h2>返回值</h2>
+<table class="noborder">
+<tr>
+<td style="width:10%" class="valign-top">成功：</td>
+<td style="width:90%">返回按下的按鈕 ID。</td>
+</tr>
+<tr>
+<td class="valign-top">失敗：</td>
+<td>$IDTIMEOUT (-1) 若對話框超過時間則返回 -1。</td>
+</tr>
+</table>
+<br><br><br><table>
+<tr>
+<td style="width:15%"><strong>按下的按鈕</strong></td>
+<td style="width:85%"><strong>返回值 </strong></td>
+</tr>
+<tr>
+<td>確定</td>
+<td>$IDOK (1)</td>
+</tr>
+<tr>
+<td>取消</td>
+<td>$IDCANCEL (2)</td>
+</tr>
+<tr>
+<td>放棄</td>
+<td>$IDABORT (3)</td>
+</tr>
+<tr>
+<td>重試</td>
+<td>$IDRETRY (4)</td>
+</tr>
+<tr>
+<td>忽略</td>
+<td>$IDIGNORE (5)</td>
+</tr>
+<tr>
+<td>是</td>
+<td>$IDYES (6)</td>
+</tr>
+<tr>
+<td>否</td>
+<td>$IDNO (7)</td>
+</tr>
+<tr>
+<td>重試 **</td>
+<td>$IDTRYAGAIN (10)</td>
+</tr>
+<tr>
+<td>繼續 **</td>
+<td>$IDCONTINUE (11)</td>
+</tr>
+</table>
+<br>
+這些常數被定義在 MsgBoxConstants.au3中。<br><h2>附註</h2>
+<p>flag參數可以有下列表格所列數種組合數值：<br><br></p>
+<table>
+<tr>
+<th><strong>常數名稱</strong></th>
+<th><strong>十進位的 flag 值</strong></th>
+<th><strong>相關按鈕結果</strong></th>
+<th><strong>十六進位的 flag 值</strong></th>
+</tr>
+<tr>
+<td>$MB_OK</td>
+<td>0</td>
+<td>確定按鈕</td>
+<td>0x0</td>
+</tr>
+<tr>
+<td>$MB_OKCANCEL</td>
+<td>1</td>
+<td>確定和取消</td>
+<td>0x1</td>
+</tr>
+<tr>
+<td>$MB_ABORTRETRYIGNORE</td>
+<td>2</td>
+<td>終止、重試和忽略</td>
+<td>0x2</td>
+</tr>
+<tr>
+<td>$MB_YESNOCANCEL</td>
+<td>3</td>
+<td>是、否和取消</td>
+<td>0x3</td>
+</tr>
+<tr>
+<td>$MB_YESNO</td>
+<td>4</td>
+<td>是與否</td>
+<td>0x4</td>
+</tr>
+<tr>
+<td>$MB_RETRYCANCEL</td>
+<td>5</td>
+<td>重試和取消</td>
+<td>0x5</td>
+</tr>
+<tr>
+<td>$MB_CANCELTRYCONTINUE</td>
+<td>6</td>
+<td>取消、重試、繼續</td>
+<td>0x6</td>
+</tr>
+<tr>
+<td>$MB_HELP</td>
+<td>16384</td>
+<td>在訊息框中增加幫助按鈕。當使用者點擊幫助按鈕或按F1鍵時，系統會傳送一個 WM_HELP 訊息給擁有者。</td>
+<td>0x4000</td>
+</tr>
+<tr>
+<td><strong>常數名稱</strong></td>
+<td><strong>十進位的 flag 值</strong></td>
+<td><strong>相關圖示結果</strong></td>
+<td><strong>十六進位的 flag 值</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>0</td>
+<td>(無圖示)</td>
+<td>0x0</td>
+</tr>
+<tr>
+<td>$MB_ICONERROR</td>
+<td>16</td>
+<td>錯誤圖示</td>
+<td>0x10</td>
+</tr>
+<tr>
+<td>$MB_ICONQUESTION</td>
+<td>32</td>
+<td>詢問的問號圖示</td>
+<td>0x20</td>
+</tr>
+<tr>
+<td>$MB_ICONWARNING</td>
+<td>48</td>
+<td>驚歎號圖示</td>
+<td>0x30</td>
+</tr>
+<tr>
+<td>$MB_ICONINFORMATION</td>
+<td>64</td>
+<td>由一個圓圈內有 'i' 所組成的訊息圖示</td>
+<td>0x40</td>
+</tr>
+<tr>
+<td><strong>常數名稱</strong></td>
+<td><strong>十進位的 flag 值</strong></td>
+<td><strong>相關預設結果</strong></td>
+<td><strong>十六進位的 flag 值</strong></td>
+</tr>
+<tr>
+<td>$MB_DEFBUTTON1</td>
+<td>0</td>
+<td>第一個即為預設按鈕</td>
+<td>0x0</td>
+</tr>
+<tr>
+<td>$MB_DEFBUTTON2</td>
+<td>256</td>
+<td>第二個即為預設按鈕</td>
+<td>0x100</td>
+</tr>
+<tr>
+<td>$MB_DEFBUTTON3</td>
+<td>512</td>
+<td>第三個即為預設按鈕</td>
+<td>0x200</td>
+</tr>
+<tr>
+<td>$MB_DEFBUTTON4</td>
+<td>768</td>
+<td>第四個即為預設按鈕</td>
+<td>0x300</td>
+</tr>
+<tr>
+<td><strong>常數名稱</strong></td>
+<td><strong>十進位的 flag 值</strong></td>
+<td><strong>相關程序類型結果</strong></td>
+<td><strong>十六進位的 flag 值</strong></td>
+</tr>
+<tr>
+<td>$MB_APPLMODAL</td>
+<td>0</td>
+<td>應用程式</td>
+<td>0x0</td>
+</tr>
+<tr>
+<td>$MB_SYSTEMMODAL</td>
+<td>4096</td>
+<td>系統類型 (有圖示的對話框)</td>
+<td>0x1000</td>
+</tr>
+<tr>
+<td>$MB_TASKMODAL</td>
+<td>8192</td>
+<td>工作類型</td>
+<td>0x2000</td>
+</tr>
+<tr>
+<td><strong>常數名稱</strong></td>
+<td><strong>十進位的 flag 值</strong></td>
+<td><strong>其它相關各種結果</strong></td>
+<td><strong>十六進位的 flag 值</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>0</td>
+<td>(無其它特別項目)</td>
+<td>0x0</td>
+</tr>
+<tr>
+<td>$MB_DEFAULT_DESKTOP_ONLY</td>
+<td>131072</td>
+<td>
+<a href="MsgBox.htm">MsgBox()</a> shows on the desktop of the interactive window station.</td>
+<td>0x20000</td>
+</tr>
+<tr>
+<td>$MB_RIGHT</td>
+<td>524288</td>
+<td>標題與文字為靠右對齊</td>
+<td>0x80000</td>
+</tr>
+<tr>
+<td>$MB_RTLREADING</td>
+<td>1048576</td>
+<td>在希伯來語和阿拉伯語的系統上，使用由右到左的閱讀方式在訊息的顯示和標題文字上</td>
+<td>0x100000</td>
+</tr>
+<tr>
+<td>$MB_SETFOREGROUND</td>
+<td>65536</td>
+<td>訊息框成為前景視窗</td>
+<td>0x10000</td>
+</tr>
+<tr>
+<td>$MB_TOPMOST</td>
+<td>262144</td>
+<td>
+<a href="MsgBox.htm">訊息框(MsgBox)</a>擁有置頂屬性</td>
+<td>0x40000</td>
+</tr>
+<tr>
+<td>$MB_SERVICE_NOTIFICATION</td>
+<td>2097152</td>
+<td>即便沒有使用者登入電腦，函式依舊會顯示訊息框在目前運作的桌面上</td>
+<td>0x200000</td>
+</tr>
+</table>
+<br>
+舉例來說，如要指定一個帶 [是/否] 按鈕的系統類型框(SYSTEMMODAL)，則其旗標值將為 4096+4 (或 4100)。如使用十六進位旗標，則就是 0x1000+0x4 (或 0x1004)。<br><br>
+訊息框會出現在螢幕正中央，且自動根據文字內容自行調整。然而該標題若使用系統類型(SYSTEMMODAL) 旗標(4096)，則它將被截去一部份。<br><br>
+如果"title" 等於 <a href="../keywords/Default.htm">預設關鍵字</a> 則使用@Scriptname。<br><br>
+注意事項; 當一個服務使用$MB_SERVICE_NOTIFICATION flag 呼叫MsgBox 時，則MsgBox 不支援使用 timeout 參數。當$MB_SERVICE_NOTIFICATION被使用時，則呼叫MsgBox的程序就不擁有該訊息框。<br><br>
+這些常數被定義在 MsgBoxConstants.au3 中<br><h2>相關</h2>
+<p><a href="InputBox.htm">InputBox</a>, <a href="SplashTextOn.htm">SplashTextOn</a>, <a href="ToolTip.htm">ToolTip</a>, <a href="TrayTip.htm">TrayTip</a></p>
+
+<h2 class="bottom">範例</h2>
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") &amp;&amp; (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+function copyToClipboard(section) {
+if (window.clipboardData &amp;&amp; clipboardData.setData) {
+clipboardData.setData("text", section + "\r\n");
+alert("Copied to clipboard");
+}
+}
+</script><h3>範例 1</h3>
+<div class="codeSnippetContainer">
+	<div class="codeSnippetContainerTabs">
+<script type="text/javascript">
+if (document.URL.match(/^mk:@MSITStore:/i)) {
+document.write('<div class="codeSnippetContainerTab codeSnippetContainerTabSingle" dir="ltr">');
+document.write('tx_ltsymbolobject id=hhctrl type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"tx_gtsymbol<param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Open this Script"><param name="Item1" value=",Examples\\HelpFile\\MsgBox.au3,">tx_ltsymbol/objecttx_gtsymbol');
+document.write('<\/div>');
+}
+</script>
+</div>
+
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetToolBar">
+<div class="codeSnippetToolBarText">
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") &amp;&amp; (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+document.write('tx_ltsymbola href="#" id="copy" onclick="copyToClipboard(document.getElementById(\'copytext1\').innerText)"tx_gtsymbolCopy to clipboard<\/a>');
+</script>
+</div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="copytext1">
+<pre><span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span>
+
+<a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Title"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This message box will timeout after 10 seconds or select the OK button."</span><span class="S8">,</span><span class="S0"> </span><span class="S3">10</span><span class="S8">)</span>
+<span class="S0"></span></span></pre>
+</div>
+</div>
+</div>
+<h3>範例 2</h3>
+<div class="codeSnippetContainer">
+	<div class="codeSnippetContainerTabs">
+<script type="text/javascript">
+if (document.URL.match(/^mk:@MSITStore:/i)) {
+document.write('<div class="codeSnippetContainerTab codeSnippetContainerTabSingle" dir="ltr">');
+document.write('tx_ltsymbolobject id=hhctrl type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"tx_gtsymbol<param name="Command" value="ShortCut"><param name="Font" value="Verdana,10pt"><param name="Text" value="Text:Open this Script"><param name="Item1" value=",Examples\\HelpFile\\MsgBox[2].au3,">tx_ltsymbol/objecttx_gtsymbol');
+document.write('<\/div>');
+}
+</script>
+</div>
+
+<div class="codeSnippetContainerCodeContainer">
+<div class="codeSnippetToolBar">
+<div class="codeSnippetToolBarText">
+<script type="text/javascript">
+if ((navigator.appName == "Microsoft Internet Explorer") &amp;&amp; (parseInt(navigator.appVersion) >= 4)) // IE (4+) only
+document.write('tx_ltsymbola href="#" id="copy" onclick="copyToClipboard(document.getElementById(\'copytext2\').innerText)"tx_gtsymbolCopy to clipboard<\/a>');
+</script>
+</div>
+</div>
+<div class="codeSnippetContainerCode" dir="ltr" id="copytext2">
+<pre><span><a class="codeSnippetLink" href="../keywords/include.htm"><span class="S11">#include</span></a><span class="S0"> </span><span class="S7">&lt;MsgBoxConstants.au3&gt;</span>
+
+<a class="codeSnippetLink" href="../keywords/Dim.htm"><span class="S5">Local</span></a><span class="S0"> </span><span class="S9">$iTimeout</span><span class="S0"> </span><a class="codeSnippetLink" href="../intro/lang_operators.htm"><span class="S8">=</span></a><span class="S0"> </span><span class="S3">10</span>
+
+<span class="S1">; Display a message box with a nested variable in its text.</span>
+<a class="codeSnippetLink" href="../functions/MsgBox.htm"><span class="S4">MsgBox</span></a><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"Title"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"This message box will timeout after "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$iTimeout</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">" seconds or select the OK button."</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$iTimeout</span><span class="S8">)</span>
+<span class="S0"></span></span></pre>
+</div>
+</div>
+</div>
+</body>
+</html>
